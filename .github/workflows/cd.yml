@@ -11,7 +11,7 @@ jobs:
 
     permissions:
       contents: read
-      packages: write   # Required to push to GHCR
+      packages: write
 
     steps:
     - name: Checkout code
@@ -32,9 +32,7 @@ jobs:
       with:
         context: ./app
         push: true
-        tags: |
-          ghcr.io/${{ github.repository_owner }}/ci-cd-aoio:latest
-          ghcr.io/${{ github.repository_owner }}/ci-cd-aoio:${{ github.run_number }}
+        tags: ghcr.io/prash-33/ci-cd-aoio:latest
 
     - name: Verify image pushed
-      run: echo "✅ Docker image pushed to GHCR successfully!"
+      run: echo "✅ Docker image pushed to ghcr.io/prash-33/ci-cd-aoio:latest"
